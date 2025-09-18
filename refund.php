@@ -54,7 +54,7 @@ echo "<h2>Refund API Response</h2>";
 $responseData = json_decode($response, true);
 
 $stmt = $conn->prepare("INSERT INTO refund_logs (customerID, leadID, txn_id, mihpayid, refund_amount, status, response, amount) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssdiss", $customerID, $leadID, $txnid, $mihpayidResponse, $refundAmount, $responseData['status'], $response, $refundAmount);
+$stmt->bind_param("ssssdiss", $customerID, $leadID, $txnid, $mihpayid, $refundAmount, $responseData['status'], $response, $refundAmount);
 $stmt->execute();
 $stmt->close();
 
